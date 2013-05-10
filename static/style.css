@@ -8,7 +8,13 @@ html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pr
     box-sizing: border-box;
 }
 
-html { background: #eee; }
+html {
+    background: #eee;
+    color: #333;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
 a { color: #2081A2; text-decoration: none; }
 a:hover { color: #e0115f; }
 p { margin-bottom: 1em; }
@@ -42,14 +48,10 @@ h3 {
 
 
 #content {
-    color: #333;
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5em;
     margin: auto;
     max-width: 750px;
     background: white;
-    padding: 20px 5%;
+    padding: 50px 5%;
     border: 1px solid #ddd;
     border-top: none;
     border-bottom: none;
@@ -109,7 +111,7 @@ h3 {
 .footer {
     color: #555;
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
 
