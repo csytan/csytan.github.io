@@ -111,6 +111,12 @@ h3 {
     -webkit-transition-property: opacity;
     -webkit-transition-duration: 0.15s;
 }
+.portfolio #goodsir,
+.portfolio #vittyo {
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+    cursor: zoom-in;
+}
 
 .footer {
     color: #555;
