@@ -17,6 +17,7 @@ html {
     font-size: 16px;
     line-height: 1.5;
 }
+
 a { color: #2081A2; text-decoration: none; }
 a:hover { color: #e0115f; }
 p { margin-bottom: 1em; }
@@ -127,4 +128,16 @@ h3 {
     margin-bottom: 50px;
 }
 
+
+@media (max-width: 500px) {
+    #content {
+        padding: 30px 25px;
+        border: none;
+    }
+
+    h1 {
+        font-size: 50px;
+        margin-left: -7px;
+    }
+}
 
