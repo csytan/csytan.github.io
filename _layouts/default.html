@@ -6,6 +6,13 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
         <link rel="icon" href="/static/favicon.ico">
         <link href="/static/style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript">
+            if (window.location.host === 'csytan.com' && 
+                window.location.protocol != 'https:') {
+                window.location.protocol = 'https';
+            }
+        </script>
+        
     </head>
     <body>
         {% include header.html %}
