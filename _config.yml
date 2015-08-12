@@ -1,0 +1,11 @@
+# Site settings
+title: Chris Tan. Maker, NYC.
+email: csytan@gmail.com
+description: Chris Tan's personal website.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://csytan.com" # the base hostname & protocol for your site
+twitter_username: csytan
+github_username: csytan
+
+# Build settings
+markdown: kramdown
