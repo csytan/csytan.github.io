@@ -35,21 +35,20 @@ a:hover {
 
 h1 {
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 500;
     margin: 1em 0;
 }
 
 
 .header {
-    margin: 40px auto;
+    margin: 45px auto;
     text-align: center;
 }
 
 .header_title {
     text-decoration: none;
     padding: 0;
-    font-size: 25px;
-    font-weight: 500;
+    font-size: 26px;
     color: #333;
 }
 
@@ -80,7 +79,7 @@ h1 {
 .content {
     width: 90%;
     max-width: 600px;
-    margin: 25px auto;
+    margin: auto;
 }
 
 .projectlink {
