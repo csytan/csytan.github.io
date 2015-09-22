@@ -1,3 +1,0 @@
-- Graham's idea
-- Chris Sauve - The habits of highly boring people 
-    - https://www.youtube.com/watch?v=3rbVQNTzCh8

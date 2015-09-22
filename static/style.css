@@ -37,11 +37,14 @@ h1 {
     font-size: 30px;
     font-weight: 500;
     margin: 1em 0;
+    text-align: center;
 }
 
 
+/* Globals
+************************************/
 .header {
-    margin: 50px auto;
+    margin: 50px auto 25px;
     text-align: center;
 }
 .header_title {
@@ -103,7 +106,6 @@ h1 {
     font-size: 22px;
 }
 
-
 .projectlink {
     display: block;
     font-size: 23px;
@@ -117,7 +119,14 @@ h1 {
     font-weight: 400;
 }
 
-
+/* Page specific
+************************************/
+img.index_headshot {
+    display: block;
+    max-width: 200px;
+    border-radius: 100%;
+    margin: 35px auto;
+}
 
 
 
