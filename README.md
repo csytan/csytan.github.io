@@ -1,7 +1,11 @@
 csytan.github.io
 ================
 
+To install:
+    gem install jekyll
 
+To run:
+    jekyll serve
 
 
 ## Links 
