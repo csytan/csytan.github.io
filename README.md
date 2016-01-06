@@ -2,7 +2,8 @@ csytan.github.io
 ================
 
 To install:
-    gem install jekyll
+    pip install pygments
+    gem install jekyll pygments.rb
 
 To run:
     jekyll serve
