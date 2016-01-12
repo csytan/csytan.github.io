@@ -5,7 +5,7 @@ title: Projects / Remote Debugginator
 
 # The Remote Debugginator
 
-The Remote Debugginator is a device created for the [Acacia Irrigation Project](http://acaciairrigation.org/) to enable remote access to a LAN network via 3g.
+The Remote Debugginator is a device created for the [Acacia Irrigation Project](http://acaciairrigation.org/) to enable remote access to a LAN network over 3g.
 
 ![The Remote Debugginator](/images/projects_rd1.jpg)
 
@@ -17,13 +17,19 @@ While working on the the project we encountered a lot of difficulty debugging an
 
 Collecting data takes a lot of effort. Typically we drive to our sites from Louga (where we are staying) which takes about 45 minutes each way. It's not an easy drive, especially after the rainy season in Senegal.
 
-The road is extremely sandy and frequently littered with deep potholes where the asphalt has collapsed into the soil.
-
 ![Getting stuck in the sand](/images/projects_rd8.jpg)
 
+The road is extremely sandy and frequently littered with deep potholes where the asphalt has collapsed into the soil. 
 
-## Parts List
+This is where the Remote Debugginator becomes useful. All we need is to have a farmer turn the device on near the irrigation system and we're good to go.
+
+
+## Parts list
+
+![Alt text](/images/projects_rd6.jpg)
+
 - [Raspberry Pi Kit](http://www.amazon.com/Raspberry-Complete-Starter-Preloaded-Heatsink/dp/B00MV6TAJI/)
+    - If you don't want to get a kit, make sure to buy a version 2, as it can [provide more power to USB devices](https://raspberrypi.stackexchange.com/questions/27708/is-setting-max-usb-current-1-to-give-more-power-to-usb-devices-a-bad-idea)
 - [Case + Screen for RPi](http://www.amazon.com/Tontec%C2%AE-Raspberry-Display-Touchscreen-Transparent/dp/B00NANNJLQ/)
 - [USB battery pack (10000 mAh)](http://www.amazon.com/Anker-10000mAh-Portable-External-Technology/dp/B009USAJCC/)
 - 3g USB dongle
@@ -59,15 +65,48 @@ Booting directly into shell:
 - http://stackoverflow.com/a/17830633
 
 
-## Boot scripts
+## Booting up
 
-Add the following files to your home folder
+<iframe width="100%" height="330" src="https://www.youtube.com/embed/kkuggWvZ5NY" frameborder="0" allowfullscreen></iframe>
 
-    run.sh
-    3g.sh
-    tunnel.sh
 
-Create a file named **run.sh** in your home folder:
+After booting, the Pi will need to:
+
+1. Connect to 3g
+2. Set up the reverse tunnel
+3. Re-connect automatically to 3g or tunnel
+
+We run the 3g and tunnel shell scripts in separate **screen** windows. This makes it easier to debug should a problem occur.
+
+Setting up scripts:
+
+    sudo apt-get install screen
+
+Add the following to **~/.screenrc**. This enables the remotely logged in user to access the screen session.
+
+    defshell -bash
+    multiuser on
+    acladd pi
+
+Add the following to **~/.bashrc**. This starts **run.sh** only when the Pi boots up and not when someone connects via SSH or screen. If anyone has a better way to do this I'm all ears.
+
+{% highlight bash %}
+if [ -n "$STY" ]; then
+    # Screen session
+    echo 'screen session'
+elif [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    # SSH Session
+    # http://serverfault.com/a/506267
+    echo 'ssh session'
+else
+    # Main session
+    echo 'main session'
+    ~/run.sh
+fi
+{% endhighlight %}
+
+
+Create a file named **run.sh** in your home folder. This starts the 3g and reverse tunnel scripts in separate screen windows.
 
 {% highlight bash %}
 #!/bin/bash
@@ -88,8 +127,17 @@ screen -r pi -p 3g
 {% endhighlight %}
 
 
-Create a file named **3g.sh** in your home folder:
-    
+## Setting up 3g
+
+![Alt text](/images/projects_rd3.jpg)
+
+To connect to 3g, we'll need to [install Sakis3g](http://www.sakis3g.com/).  I've left out the steps because getting Sakis working really depends on your modem and cell provider. It's a good idea to try Sakis3g first in interactive mode.
+
+After that, install [UMTSKeeper](http://mintakaconciencia.net/squares/umtskeeper/) to automatically reconnect in the event of a connection failure.
+
+
+Create a file named **3g.sh** in your home folder. You'll need to modify the *sakisoperators* to fit your configuration.
+
 {% highlight bash %}
 #!/bin/bash
 
@@ -102,7 +150,36 @@ sudo /home/pi/umtskeeper/umtskeeper --sakisoperators "USBINTERFACE='3' OTHER='US
 {% endhighlight %}
 
 
-Create a file named **tunnel.sh** in your home folder:
+## Reverse tunnel setup (server)
+
+First, you'll need to set up a linux server. I used a $5 / month instance at [Digital Ocean](https://www.digitalocean.com/).
+
+On your server, add this to **/etc/ssh/sshd_config** so that the connection times out after 3 x 60 seconds of unresponsiveness.
+
+    ClientAliveInterval 60
+
+Next, generate an SSH key on the Pi by following the [guide here](https://help.github.com/articles/generating-ssh-keys/). Then copy the Pi's public key to **~/.ssh/authorized_keys** on the DigitalOcean server. This will let the Pi login to the server without a password.
+
+## Reverse tunnel setup (Pi)
+
+Back to the Pi. Add the follow to **~/.ssh/config** so that the client exits after error (usually it will hang) and disconnects after 3 x 60 seconds of unresponsiveness.
+
+    ExitOnForwardFailure yes
+    ServerAliveInterval 60
+
+Test out the reverse tunnel by running this command on the Pi. You'll want to replace the IP address with the address of your own server.
+
+    ssh -R 22222:localhost:22 ubuntu@159.203.95.60
+
+If this works, you can log into your server (using a separate terminal) and connect to the Pi via this command:
+
+    ssh -p 22222 pi@localhost
+    
+Next, we'll install **autossh** which enables automatic reconnection of ssh sessions:
+
+    sudo apt-get install autossh
+
+Create a file named **tunnel.sh** in your home folder. This script waits for the 3g interface to go live before starting the reverse tunnel. It'll also restart the tunnel in the case of an unclean disconnect.
 
 {% highlight bash %}
 #!/bin/bash
@@ -122,60 +199,11 @@ do
 done
 {% endhighlight %}
 
+That's it! If everything works correctly, you should be automatically connecting to the reverse tunnel each time the Pi boots up.
 
 
-Setting up scripts:
+## Useful links
 
-    sudo apt-get install screen
+- https://unix.stackexchange.com/questions/46235/how-does-reverse-ssh-tunneling-work
+- http://blogs.wcode.org/2015/04/howto-ssh-to-your-iot-device-when-its-behind-a-firewall-or-on-a-3g-dongle/
 
-Add this to **~/.screenrc**
-
-    defshell -bash
-    multiuser on
-    acladd pi
-
-Add this to **~/.bashrc**
-
-{% highlight bash %}
-if [ -n "$STY" ]; then
-    # Screen session
-    echo 'screen session'
-elif [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    # SSH Session
-    # http://serverfault.com/a/506267
-    echo 'ssh session'
-else
-    # Main session
-    echo 'main session'
-    ~/run.sh
-fi
-{% endhighlight %}
-
-
-Add to **~/.ssh/config** so that the client exits after error (usually it will hang) and disconnects after 3 x 60 seconds of unresponsiveness.
-
-    ExitOnForwardFailure yes
-    ServerAliveInterval 60
-
-
-
-## Digital Ocean server
-
-Add this to **sudo nano /etc/ssh/sshd_config** so that the connection times out after 3 x 60 seconds of unresponsiveness.
-
-    ClientAliveInterval 60
-
-
-
-    
-## Setting up the reverse tunnel
-
-
-<iframe width="100%" height="330" src="https://www.youtube.com/embed/kkuggWvZ5NY" frameborder="0" allowfullscreen></iframe>
-
-![Alt text](/images/projects_rd2.jpg)
-![Alt text](/images/projects_rd3.jpg)
-![Alt text](/images/projects_rd4.jpg)
-![Alt text](/images/projects_rd5.jpg)
-![Alt text](/images/projects_rd6.jpg)
-![Alt text](/images/projects_rd7.png)
