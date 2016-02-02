@@ -90,7 +90,8 @@ Add the following to **~/.screenrc**. This enables the remotely logged in user t
 
 Add the following to **~/.bashrc**. This starts **run.sh** only when the Pi boots up and not when someone connects via SSH or screen. If anyone has a better way to do this I'm all ears.
 
-{% highlight bash %}
+
+```bash
 if [ -n "$STY" ]; then
     # Screen session
     echo 'screen session'
@@ -103,8 +104,7 @@ else
     echo 'main session'
     ~/run.sh
 fi
-{% endhighlight %}
-
+```
 
 Create a file named **run.sh** in your home folder. This starts the 3g and reverse tunnel scripts in separate screen windows.
 
