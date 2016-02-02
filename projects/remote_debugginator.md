@@ -93,7 +93,7 @@ Add the following to **~/.bashrc**. This starts **run.sh** only when the Pi boot
 
 ```bash
 if [ -n "$STY" ]; then
-    # Screen session
+    # Screen session.
     echo 'screen session'
 elif [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     # SSH Session
