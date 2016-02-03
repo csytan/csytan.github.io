@@ -38,9 +38,9 @@ This is where the Remote Debugginator becomes useful. All we need is to have a f
 - [Portable keyboard](http://www.amazon.com/Rii-mini-X1-Raspberry-KP-810-10LL/dp/B00I5SW8MC/)
 - [Digital Ocean](https://www.digitalocean.com/) instance
 - M2M Sim card. Here are some providers:
-    - http://www.podsystemm2m.com/
-    - http://www.embeddedworks.net/m2m-data.html
-    - http://neo.aeris.com/pricing/plans-pricing/
+    - <http://www.podsystemm2m.com/>
+    - <http://www.embeddedworks.net/m2m-data.html>
+    - <http://neo.aeris.com/pricing/plans-pricing/>
 
 
 ## Raspberry Pi setup
@@ -49,20 +49,20 @@ The Pi was set up using the default [Raspbian distro](https://www.raspbian.org/)
 
 Setting up screen:
 
-- http://s3.amazonaws.com/ttbox/35screen.zip 
-- http://s3.amazonaws.com/ttbox/35calibrate.zip 
+- <http://s3.amazonaws.com/ttbox/35screen.zip>
+- <http://s3.amazonaws.com/ttbox/35calibrate.zip>
 
 Connecting to wifi via command line:
 
-- https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
+- <https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md>
 
 Preventing Edimax wifi adapter from sleeping during shell sessions when idle:
 
-- https://www.raspberrypi.org/forums/viewtopic.php?t=61665
+- <https://www.raspberrypi.org/forums/viewtopic.php?t=61665>
 
 Booting directly into shell:
 
-- http://stackoverflow.com/a/17830633
+- <http://stackoverflow.com/a/17830633>
 
 
 ## Booting up
@@ -91,7 +91,7 @@ Add the following to **~/.screenrc**. This enables the remotely logged in user t
 Add the following to **~/.bashrc**. This starts **run.sh** only when the Pi boots up and not when someone connects via SSH or screen. If anyone has a better way to do this I'm all ears.
 
 
-```bash
+{% highlight bash %}
 if [ -n "$STY" ]; then
     # Screen session.
     echo 'screen session'
@@ -104,7 +104,8 @@ else
     echo 'main session'
     ~/run.sh
 fi
-```
+{% endhighlight %}
+
 
 Create a file named **run.sh** in your home folder. This starts the 3g and reverse tunnel scripts in separate screen windows.
 
@@ -204,6 +205,6 @@ That's it! If everything works correctly, you should be automatically connecting
 
 ## Useful links
 
-- https://unix.stackexchange.com/questions/46235/how-does-reverse-ssh-tunneling-work
-- http://blogs.wcode.org/2015/04/howto-ssh-to-your-iot-device-when-its-behind-a-firewall-or-on-a-3g-dongle/
+- <https://unix.stackexchange.com/questions/46235/how-does-reverse-ssh-tunneling-work>
+- <http://blogs.wcode.org/2015/04/howto-ssh-to-your-iot-device-when-its-behind-a-firewall-or-on-a-3g-dongle/>
 
