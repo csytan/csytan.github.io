@@ -1,0 +1,100 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Lato:700,400,300);
+
+html {
+    background: rgb(243, 243, 243);
+}
+
+
+body {
+    width: 85%;
+    max-width: 500px;
+    margin: 75px auto;
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 21px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+h2 {
+    text-align: center;
+    font-family: lato;
+    font-weight: normal;
+    font-size: 25px;
+    margin: 20px 0 0;
+}
+
+a {
+    text-decoration: none;
+    color: #0875C7;
+}
+a:hover {
+    color: #0067B4;
+}
+
+.title {
+    text-align: center;
+    font-family: 'Pacifico';
+    font-weight: normal;
+    font-size: 50px;
+    margin: 25px 0 0;
+    line-height: 1.5;
+}
+.subtitle {
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Pacifico';
+    font-weight: normal;
+    margin-bottom: 40px;
+    line-height: 1.3;
+}
+
+.mainpic {
+    cursor: pointer;
+    background-image: url(profile1.jpg);
+    background-position: 0;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    max-width: 280px;
+    width: 100%;
+    height: 240px;
+    margin: 20px auto;
+    border-radius: 5%;
+    overflow: hidden;
+}
+.mainpic:hover {
+    background-image: url(profile2.jpg);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+}
+.mainpic:active {
+    background-image: url(profile3.jpg);
+}
+.mainpic img {
+    max-width: 100%;
+}
+.mainpic img {
+    display: none;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    margin: 25px auto;
+    border-radius: 10px;
+}
+
+
+.map {
+    display: block;
+    max-width: 400px;
+    margin: 20px auto;
+    border: none;
+}
+.map:hover {
+    opacity: 0.8;
+}
+.map img {
+    width: 100%;
+    border-radius: 10px;
+}
