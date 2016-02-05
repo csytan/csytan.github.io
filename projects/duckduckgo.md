@@ -5,9 +5,9 @@ title: Projects / DuckDuckGo Instant Answer Regression Tester
 
 # Instant Answer Regression Tester
 
-I was fortunate to do some contract work for [DuckDuckGo](https://duckduckgo.com/) when they needed a way to test their  Instant Answers library. [Instant Answers](https://duck.co/help/features/instant-answers-and-other-features) are keywords that run a command on DuckDuckGo. 
+I was fortunate to do some contract work for [DuckDuckGo](https://duckduckgo.com/) when they needed a way to test their  Instant Answers library. [Instant Answers](https://duck.co/help/features/instant-answers-and-other-features) are keywords that run a command on DuckDuckGo search engine. 
 
-Their [Instant Answer platform](http://duckduckhack.com/) is open source, so anyone can submit one as long as they're open to do a bit of coding. [Here's an example](https://duckduckgo.com/?q=ducksay+hello+world!&ia=ducksay) of an Instant Answer I made that is triggered by the keyword **ducksay**.
+Their [Instant Answer platform](http://duckduckhack.com/) is open source, so anyone can submit one as long as they're open to do a bit of coding. [Here's an example](https://duckduckgo.com/?q=ducksay+hello+world!&ia=ducksay) of one I made that is triggered by the keyword **ducksay**.
 
 ![ducksay](/images/projects_ddg3.png)
 
