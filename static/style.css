@@ -164,6 +164,7 @@ pre {
 }
 .content img {
     max-width: 100%;
+    width: auto;
     border-radius: 3px;
 }
 
