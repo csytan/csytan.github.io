@@ -33,12 +33,14 @@ I discovered:
 
 ## Second approach
 
-The second approach used image comparison. It's a simple solution that detects most problems. It's also softer when 
+The second approach used image comparison. It's a simple solution that detects most problems. It's also softer when dealing with certain types of errors.
 
 - It runs in 30 seconds when using 4 instances of Chrome on a Macbook Air
 - Uses WebDriver to control them
 - Injects a script which sends the coordinates of the bottom of the IA. 
 - [ImageMagick](http://www.imagemagick.org/) uses the coordinates to crop a screenshot of the IA before doing an image comparison
+
+Here's a screenshot of it running:
 
 ![duckducktest](/images/projects_ddg1.png)
 
