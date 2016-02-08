@@ -2,11 +2,104 @@
 layout: default
 ---
 
-<img class="index_headshot" src="/images/headshot.jpg">
+<div class="headshot">
+    <video class="headshot_vid" width="200" height="200">
+        <source src="/images/headshot3.webm" type="video/webm">
+        <source src="/images/headshot.mp4" type="video/mp4">
+    </video>
+    <img class="headshot_img" src="/images/headshot.png">
+    <canvas class="headshot_canvas"></canvas>
+</div>
+
+<script>
+    var vid = document.querySelector('.headshot_vid');
+    var img = document.querySelector('.headshot_img');
+    var canvas = document.querySelector('.headshot_canvas');
+    var ctx = canvas.getContext('2d');
+    var steps = 30;
+    
+    vid.style.display = 'none';
+    img.style.display = 'block';
+    img.style.margin = 'auto';
+    img.style.borderRadius = '10px';
+    canvas.width = vid.width;
+    canvas.height = vid.height;    
+    canvas.style.display = 'none';
+    canvas.style.margin = 'auto';
+    canvas.style.borderRadius = '10px';
+    vid.pause();
+    
+    vid.addEventListener('loadedmetadata', loadVideo);
+    
+    var frames = [];
+    
+    function loadVideo() {
+        // Loads images of the video into memory for quick canvas playback
+        vid.addEventListener('seeked', seeked, false);
+        
+        function seeked() {
+            // Draw image to canvas once video has seeked
+            ctx.drawImage(vid, 0, 0, vid.width, vid.height);
+            
+            // Save image once it has been drawn
+            requestAnimationFrame(function() {
+                var image = ctx.getImageData(0, 0, vid.width, vid.height);
+                frames.push(image);
+                saveNextFrame();
+            });
+        }
+        
+        function saveNextFrame() {
+            vid.currentTime += (vid.duration / steps);
+            if (vid.currentTime >= vid.duration) {
+                vid.removeEventListener('seeked', seeked, false);
+                followCursor();
+            }
+        }
+        saveNextFrame();
+    }
+    
+    
+    function followCursor() {
+        canvas.style.display = 'block';
+        img.style.display = 'none';
+        
+        var step = 0;
+        document.addEventListener('mousemove', function(e) {
+            var bounds = canvas.getBoundingClientRect();
+            var centerX = bounds.left + bounds.width / 2;
+            var centerY = bounds.top + bounds.height / 2;
+            
+            // Find x and y relative to the center of the pic
+            var x = e.clientX - centerX;
+            var y = e.clientY - centerY;
+            
+            // Convert to radians
+            var r = Math.sqrt(x * x + y * y);
+            var theta = Math.atan2(y, x);
+            var percent = (theta + Math.PI) / (Math.PI * 2);
+            
+            // Set step index
+            step = Math.floor(percent * frames.length);
+        }, false);
+        
+        function draw() {
+            var img = frames[step];
+            if (img) {
+                ctx.putImageData(img, 0, 0);
+            }
+            requestAnimationFrame(draw);
+        }
+        
+        // Initiate draw loop
+        requestAnimationFrame(draw);
+    }
+</script>
+
 
 <p>
     Chris is a full stack web developer living in NYC. 
-    He specializes in making web apps that are simple and useable.
+    He specializes in making web apps that are fun and useable.
 </p>
 
 <p>
