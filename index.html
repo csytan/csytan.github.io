@@ -20,6 +20,7 @@ layout: default
     var cursor = {x: 0, y: 0};
     var frames = [];
     
+    // This should be done in CSS but oh well
     vid.style.display = 'none';
     img.style.display = 'block';
     img.style.margin = 'auto';
@@ -36,8 +37,8 @@ layout: default
         cursor.y = e.clientY;        
     }, false);
     
+    // Loads images of the video into memory for quick canvas playback
     vid.addEventListener('loadedmetadata', function() {
-        // Loads images of the video into memory for quick canvas playback
         vid.addEventListener('seeked', seeked, false);
         
         function seeked() {
