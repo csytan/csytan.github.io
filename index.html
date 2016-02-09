@@ -17,6 +17,8 @@ layout: default
     var canvas = document.querySelector('.headshot_canvas');
     var ctx = canvas.getContext('2d');
     var steps = 30;
+    var cursor = {x: 0, y: 0};
+    var frames = [];
     
     vid.style.display = 'none';
     img.style.display = 'block';
@@ -27,13 +29,14 @@ layout: default
     canvas.style.display = 'none';
     canvas.style.margin = 'auto';
     canvas.style.borderRadius = '10px';
-    vid.pause();
     
-    vid.addEventListener('loadedmetadata', loadVideo);
+    // Keep track of the cursor position
+    document.addEventListener('mousemove', function(e) {
+        cursor.x = e.clientX;
+        cursor.y = e.clientY;        
+    }, false);
     
-    var frames = [];
-    
-    function loadVideo() {
+    vid.addEventListener('loadedmetadata', function() {
         // Loads images of the video into memory for quick canvas playback
         vid.addEventListener('seeked', seeked, false);
         
@@ -57,33 +60,29 @@ layout: default
             }
         }
         saveNextFrame();
-    }
+    });
     
     
     function followCursor() {
         canvas.style.display = 'block';
         img.style.display = 'none';
         
-        var step = 0;
-        document.addEventListener('mousemove', function(e) {
+        function draw() {
             var bounds = canvas.getBoundingClientRect();
             var centerX = bounds.left + bounds.width / 2;
             var centerY = bounds.top + bounds.height / 2;
             
             // Find x and y relative to the center of the pic
-            var x = e.clientX - centerX;
-            var y = e.clientY - centerY;
+            var x = cursor.x - centerX;
+            var y = cursor.y - centerY;
             
-            // Convert to radians
+            // Convert to radians to get 360 deg angle
             var r = Math.sqrt(x * x + y * y);
             var theta = Math.atan2(y, x);
-            var percent = (theta + Math.PI) / (Math.PI * 2);
             
-            // Set step index
-            step = Math.floor(percent * frames.length);
-        }, false);
-        
-        function draw() {
+            // Convert to a percentage to get a video frame
+            var percent = (theta + Math.PI) / (Math.PI * 2);
+            var step = Math.floor(percent * frames.length);
             var img = frames[step];
             if (img) {
                 ctx.putImageData(img, 0, 0);
