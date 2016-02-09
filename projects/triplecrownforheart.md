@@ -13,7 +13,7 @@ I've been volunteering for this event for the past three years, working on the  
 
 Check it out here: <http://donate.triplecrownforheart.ca>
 
-Each year, I've have less and less free time. It really made me think about how I could be more efficient when creating and maintaining the donation site.
+Each year I've had less free time. It really made me think about how I could be more efficient when creating and maintaining the donation site.
 
 ## Project Requirements
 
