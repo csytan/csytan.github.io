@@ -3,7 +3,7 @@ layout: default
 title: Projects / DuckDuckGo Instant Answer Regression Tester
 ---
 
-# Instant Answer Regression Tester
+# Instant Answer Regression Tester (2014)
 
 I was fortunate to do some contract work for [DuckDuckGo](https://duckduckgo.com/) when they needed a way to test their  Instant Answers library. [Instant Answers](https://duck.co/help/features/instant-answers-and-other-features) are keywords that run a command on DuckDuckGo search engine. 
 

@@ -4,7 +4,7 @@ title: Projects / Datos
 ---
 
 
-# Datos
+# Datos (2015)
 
 Datos was an experiment to bring the [iPython notebook](https://ipython.org/notebook.html) style of data analysis to the browser. It was created when I started to learn  [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) for the purpose of offline storage.
 

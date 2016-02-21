@@ -4,7 +4,7 @@ title: Projects / Network Planner Lite
 ---
 
 
-# Network Planner Lite
+# Network Planner Lite (2014)
 
 NPLite was an experiment created to get a better acquainted with mapping technology and to prepare to contribute to the [Network Planner](http://networkplanner.modilabs.org/) project.
 

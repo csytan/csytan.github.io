@@ -3,7 +3,7 @@ layout: default
 title: Projects / Remote Debugginator
 ---
 
-# The Remote Debugginator
+# The Remote Debugginator (2015)
 
 The Remote Debugginator is a device created for the [Acacia Irrigation Project](http://acaciairrigation.org/) to enable remote access to a LAN network over 3g.
 
