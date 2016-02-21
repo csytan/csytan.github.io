@@ -6,9 +6,9 @@ title: Projects / Network Planner Lite
 
 # Network Planner Lite
 
-NPLite was an experiment created to get a better acquainted with mapping technology and to prepare to contribute to the Network Planner project.
+NPLite was an experiment created to get a better acquainted with mapping technology and to prepare to contribute to the [Network Planner](http://networkplanner.modilabs.org/) project.
 
-[Network Planner](http://networkplanner.modilabs.org/) is a tool for planning the electrification of developing countries. It provides estimates for connecting to grid power, or [solar mini-grids](http://sharedsolar.org/) when connecting to the grid is too costly.
+Network Planner is a tool for planning the electrification of developing countries. It provides estimates for connecting to grid power, or [solar mini-grids](http://sharedsolar.org/) when connecting to the grid is too costly.
 
 ## Try it out
 

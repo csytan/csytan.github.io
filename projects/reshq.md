@@ -3,7 +3,7 @@ layout: default
 title: Projects / ResHQ
 ---
 
-# ResHQ (2011)
+# ResHQ (2012)
 
 ResHQ was an online appointment scheduler built for the B2B space. This was my first experience at building and maintaining a significant project by myself.
 
