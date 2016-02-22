@@ -13,6 +13,8 @@ I was brought on to lead front-end development for this project at the [Sustaina
 
 The [Explore page](http://nmis.mdgs.gov.ng/explore) is a single page app that uses [Underscore.js](http://underscorejs.org/) for templating and [Backbone.js](http://backbonejs.org/) for routing.
 
+The GitHub repo can be [found here](https://github.com/SEL-Columbia/nmis).
+
 
 ## Screenshots
 
