@@ -5,7 +5,7 @@ title: Projects / CozyCal
 
 # CozyCal (2015 - Ongoing)
 
-[CozyCal](https://cozycal.com) is my second iteration of an appointment scheduling web-app. It was created for the B2B space and built using the lessons I learned from creating [ResHQ](/projects/reshq/) in 2012. 
+[CozyCal](https://cozycal.com) is my second iteration of an appointment scheduling web-app. It was created for the B2B space and built upon the lessons I learned from creating [ResHQ](/projects/reshq/) back in 2012.
 
 You can check it out here: <https://cozycal.com>.
 
