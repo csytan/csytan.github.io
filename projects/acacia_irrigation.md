@@ -7,9 +7,9 @@ title: Projects / Acacia Irrigation Software
 
 [Acacia Irrigation](http://acaciairrigation.org/) is a batteryless solar irrigation project by the [Sustainable Engineering Lab](http://sel.columbia.edu/). 
 
-![](/images/projects_acacia1.png)
-
 The project supports 21 farmers in Senegal through three system. Each system is controlled using a Raspberry Pi and can operate 7 pumps.
+
+![](/images/projects_acacia1.png)
 
 The [Raspberry Pi](https://www.raspberrypi.org/) handles these external inputs:
 
