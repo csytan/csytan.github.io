@@ -3,7 +3,7 @@ layout: default
 title: Projects / CozyCal
 ---
 
-# CozyCal (2015 - Ongoing)
+# CozyCal Scheduling (2015 - Ongoing)
 
 [CozyCal](https://cozycal.com) is my second iteration of an appointment scheduling web-app. It was created for the B2B space and built upon the lessons I learned from creating [ResHQ](/projects/reshq/) back in 2012.
 
