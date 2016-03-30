@@ -20,6 +20,14 @@ The site was run on AppEngine and pulled data in from multiple sources:
 - Movie ratings: [Netflix](https://www.google.com/#q=netflix+api), [IMDb](http://www.imdb.com/)
 - Recommendations: Netflix, IMDb
 
+## Lessons Learned
+
+- 3rd party APIs break **all the time**. Every API you rely on with takes away from your overall reliability. Choose with caution.
+- Scraping IMDb was actually more reliable than using Netflix's API
+- AppEngine gets expensive when you need to pull so much data
+- Converting between different service's IDs took a lot of work
+
+
 ## Screen Shots
 
 Movie overview:
@@ -30,12 +38,6 @@ Categories:
 
 ![GoodSir Categories](/images/projects_goodsir1.png)
 
-## Lessons Learned
-
-- 3rd party APIs break **all the time**. Every API you rely on with takes away from your overall reliability. Choose with caution.
-- Scraping IMDb was actually more reliable than using Netflix's API
-- AppEngine gets expensive when you need to pull so much data
-- Converting between different service's IDs took a lot of work
 
 
 

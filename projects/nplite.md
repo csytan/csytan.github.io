@@ -6,22 +6,18 @@ title: Projects / Network Planner Lite
 
 # Network Planner Lite (2014)
 
-NPLite was an experiment created to get a better acquainted with mapping technology and to prepare to contribute to the [Network Planner](http://networkplanner.modilabs.org/) project.
-
-Network Planner is a tool for planning the electrification of developing countries. It provides estimates for connecting to grid power, or [solar mini-grids](http://sharedsolar.org/) when connecting to the grid is too costly.
+NPLite was an experiment created to get a better acquainted with mapping technology and to contribute to [Network Planner](http://networkplanner.modilabs.org/); a tool for electrification planning in developing countries.
 
 ## Try it out
 
 1. Go to [https://sel-columbia.github.io/nplite/](https://sel-columbia.github.io/nplite/)
 2. Click on the icon in the upper right corner to load the example dataset.
 
-This loads an example with over 10k communities (represented by **green dots**) in Myanmar and generates a minimum spanning tree to connect them. **Blue lines** represent the existing power grid and potential connection points. **Orange lines** represent impassable terrain.
-
 ![building edges](/images/projects_nplite1.png)
 
-The generation process runs a modified version of Kruskal's algorithm and creates about 40k proposed power lines (**in blue**).
+This loads an example with over 10k communities (represented by **green dots**) in Myanmar and generates a minimum spanning tree to connect them. **Blue lines** represent the existing power grid and potential connection points. **Orange lines** represent impassable terrain.
 
-It should run in less than a minute on a Macbook Air.
+The generation process runs a modified version of Kruskal's algorithm and creates about 40k proposed power lines (**in blue**). It runs in about a minute on a Macbook Air.
 
 ![Finished building network](/images/projects_nplite2.png)
 

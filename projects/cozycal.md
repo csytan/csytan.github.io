@@ -9,6 +9,8 @@ title: Projects / CozyCal
 
 You can check it out here: <https://cozycal.com>.
 
+![](/images/projects_cozycal2.png)
+
 ## Design Considerations
 
 - **Built for individuals.** Teams have much more complicated use cases.

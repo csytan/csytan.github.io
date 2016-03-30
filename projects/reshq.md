@@ -7,6 +7,8 @@ title: Projects / ResHQ
 
 ResHQ was an online appointment scheduler built for the B2B space. This was my first experience at building and maintaining a significant project by myself.
 
+![](/images/projects_reshq1.png)
+
 ## Lessons Learned
 
 - The MVP should have been built for individuals instead of for teams
@@ -16,8 +18,6 @@ ResHQ was an online appointment scheduler built for the B2B space. This was my f
 
 
 ## Screenshots
-
-![](/images/projects_reshq1.png)
 
 ![](/images/projects_reshq2.png)
 
