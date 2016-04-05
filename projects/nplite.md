@@ -8,6 +8,8 @@ title: Projects / Network Planner Lite
 
 NPLite was an experiment created to get a better acquainted with mapping technology and to contribute to [Network Planner](http://networkplanner.modilabs.org/); a tool for electrification planning in developing countries.
 
+This project is hosted on [GitHub](https://github.com/SEL-Columbia/nplite).
+
 ## Try it out
 
 1. Go to [https://sel-columbia.github.io/nplite/](https://sel-columbia.github.io/nplite/)
@@ -30,4 +32,3 @@ The generation process runs a modified version of Kruskal's algorithm and create
 - [RBush.js](https://github.com/mourner/rbush): spatial indexing used to speed up tree generation
 - [Proj4js](http://proj4js.org/): for converting PROJ.4 files to [WGS84](https://en.wikipedia.org/wiki/World_Geodetic_System#A_new_World_Geodetic_System:_WGS_84) coordinates
 
-This project is hosted on [GitHub](https://github.com/SEL-Columbia/nplite).

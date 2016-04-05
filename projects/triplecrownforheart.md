@@ -7,6 +7,8 @@ title: Projects / Triple Crown for Heart
 
 The Triple Crown for Heart is a charity bike event in [Vancouver, BC](https://en.wikipedia.org/wiki/Vancouver) encompassing three mountains: [Seymour](https://en.wikipedia.org/wiki/Mount_Seymour), [Grouse](https://en.wikipedia.org/wiki/Grouse_Mountain), and [Cypress](https://en.wikipedia.org/wiki/Cypress_Mountain_Ski_Area). All proceeds of this event go to the [BC Children's Heart Centre](http://www.bcchildrens.ca/our-services/clinics/childrens-heart-centre).
 
+This project is hosted [on Github](https://github.com/csytan/triplecrownforheart).
+
 ![Triple crown for heart](/images/projects_triplecrownforheart1.jpg)
 
 I've been volunteering for this event for the past three years, working on the  rider registration and donation site.
@@ -55,6 +57,5 @@ Cons:
 - PayPal only (Stripe requires a backend)
 - Updates are inefficient, won't scale well to a very large numbers of riders
 
-This project is hosted [on Github](https://github.com/csytan/triplecrownforheart).
 
 

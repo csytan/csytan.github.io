@@ -10,6 +10,9 @@ Datos was an experiment to bring the [iPython notebook](https://ipython.org/note
 
 I created a library [named idb.js](https://github.com/SEL-Columbia/datos/blob/gh-pages/idb.js) that wraps the IndexedDB API and provides [jQuery-like](https://jquery.com/) chaining through the use of [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). 
 
+
+This project is hosted on [GitHub](https://github.com/SEL-Columbia/datos).
+
 ![datos](/images/projects_datos.png)
 
 
@@ -29,4 +32,3 @@ I created a library [named idb.js](https://github.com/SEL-Columbia/datos/blob/gh
 - Web workers are the way to go when working with a lot of data
 
 
-This project is hosted on [GitHub](https://github.com/SEL-Columbia/datos).
