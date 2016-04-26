@@ -68,6 +68,7 @@ var gallery = new Vue({
             var url = self.url + '?offset=' + offset;
             var logo = document.querySelector('.logo');
             
+            self.offset = offset;
             self.loading = true;
             logo.classList.add('logo-loading');
             
