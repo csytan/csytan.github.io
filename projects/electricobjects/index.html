@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        The Unofficial Electric Objects Image Browser
+    </title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="//www.electricobjects.com/favicon.ico">
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <img class="logo"
+        src="http://cdn.shopify.com/s/files/1/0766/5813/t/7/assets/logomark-small.png?12692727173240172616">
+    
+    <div class="gallery">
+        <div class="gallery_images">
+            <div class="gallery_frame" 
+                v-for="image in images">
+                <div class="gallery_imgbox" 
+                    v-on:click="showModal(image)">
+                    <img class="gallery_img" v-img="imgURL(image)">
+                    <div class="gallery_title">
+                        {{ image.title }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <template v-if="loading">
+            <div class="gallery_loading">
+                Loading images...
+            </div>
+        </template>
+    </div>
+    
+    <div class="modal" 
+        v-show="image"
+        v-on:click="hide()"
+        transition="modal">
+        
+        <template v-if="image">
+            <div class="modal_body" v-on:click.stop>
+                <div class="modal_imgbox">
+                    <img class="modal_img" v-img="imgURL">
+                </div>
+                
+                <div class="modal_details">
+                    <h1 class="modal_title">
+                        {{ image.title }}
+                    </h1>
+                    <div class="modal_artist">
+                        by {{ image.artist_name }}, {{ timeAgo }}
+                    </div>
+                    <div class="modal_author">
+                        <img v-bind:src="avatar(image.user)" class="modal_author_img">
+                        <div class="modal_author_username">
+                            Curated by {{ image.user.username }}
+                        </div>
+                    </div>
+                    
+                    <a class="modal_recommended"
+                        v-on:click="showRecommended()">
+                        More like this &rarr;
+                    </a>
+                    
+                    <template v-if="favorites.length">
+                        Favorited by
+                        <div class="modal_favorites">
+                            <div class="modal_favorite"
+                                v-for="user in favorites">
+                                {{ user.full_name }}
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <div class="modal_close" v-on:click="hide()">
+                &times;
+            </div>
+        </template>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
