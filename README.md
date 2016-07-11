@@ -4,7 +4,7 @@ csytan.github.io
 To install:
 
     pip install pygments
-    gem install jekyll pygments.rb
+    bundle install
 
 To run:
 
