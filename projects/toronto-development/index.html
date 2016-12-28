@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Bookmarklet to download with named files</h1>
+    
+    1. Drag this link into your bookmarks bar:
+    <a href="javascript:void%20function(){$('[alt=%22Download%22]').each(function(){var%20t=$(this).closest(%22tr%22).find(%22td:first%22).text();t=$.trim(t);var%20o=this.onclick.toString(),e=/\d+/.exec(o),n=%22viewSupportingDocs.do%3Faction=viewSupportingDocPdf%26attachmentRsn=%22+e,r=$(%22%3Ca%3EStart%20Download%3C/a%3E%22).attr(%22download%22,t+%22.pdf%22).css(%22cursor%22,%22pointer%22).one(%22click%22,function(){r.text(%22Loading...%22);var%20t=new%20XMLHttpRequest;return%20t.open(%22GET%22,n,!0),t.responseType=%22blob%22,t.onload=function(t){200!=this.status%26%26alert(%22server%20error,%20could%20not%20download%22);var%20o=this.response,e=URL.createObjectURL(o);r.attr(%22href%22,e).text(%22Download%20ready%22)[0].click()},t.send(),!1});$(this).replaceWith(r)})}();">
+        Download Tool</a>
+    <br>
+    
+    2. Go to a Toronto development site application. Here's an 
+    <a href="http://app.toronto.ca/DevelopmentApplications/associatedApplicationsList.do?action=init&folderRsn=3804135&isCofASearch=false"
+        target="_blank">
+        example</a>.
+    <br>
+    
+    3. Click on the bookmark you just saved
+    <br>
+    
+    4. Click on "Start download" to download named files.
+    <br>
+    <br>
+</body>
+</html>
